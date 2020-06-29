@@ -18,9 +18,27 @@ Route::get('/', function () {
 });
 
 
-Route::get('/admin', function () {
-    return view('dashboard');
-});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::group(['middleware' => ['auth','admin']],function(){
+
+
+	Route::get('/dashboard', function () {
+    return view('dashboard');
+    });
+
+    Route::get('/register','RegisterController@registered');
+
+    Route::get('/role-edit/{id}','RegisterController@registeredit');
+
+    Route::put('/role-register-update/{id}','RegisterController@registerupdate');
+
+    
+
+});
+
+
