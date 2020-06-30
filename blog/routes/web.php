@@ -37,6 +37,10 @@ Route::group(['middleware' => ['auth','admin']],function(){
 
     Route::put('/role-register-update/{id}','RegisterController@registerupdate');
 
+    Route::delete('/role-delete/{id}','RegisterController@registerdelete');
+
+    
+
     
 
 });

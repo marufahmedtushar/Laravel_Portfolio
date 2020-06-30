@@ -27,9 +27,22 @@ class RegisterController extends Controller
 
     	$users= User::find($id);
     	$users->name = $request->input('username');
-    	$users->usertype = $request->input('usertype');
+    	$users->email = $request->input('email');
+        $users->usertype = $request->input('usertype');
     	$users->update();
     	return redirect('/register')->with('status','Your Data is upadated');
 
     }
+
+
+    public function registerdelete($id)
+    {
+
+        $users= User::findOrFail($id);
+        $users->delete();
+        return redirect('/register')->with('status','Data is Deleted Sucessfully');
+
+    }
+
+    
 }

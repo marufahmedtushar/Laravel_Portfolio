@@ -92,6 +92,11 @@
     <label>Name</label>
     <input type="text" name="username"class="form-control" value="{{ $users->name }}"  placeholder="user-name">
   </div>
+
+  <div class="form-group">
+    <label>Email</label>
+    <input type="text" name="email"class="form-control" value="{{ $users->email }}"  placeholder="email">
+  </div>
   <div class="form-group">
     <label>Give Role</label>
     <select name="usertype" class="form-control">

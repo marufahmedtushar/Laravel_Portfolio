@@ -114,7 +114,13 @@
                         <td>{{ $item->email }}</td>
 
                         <td><a href="/role-edit/{{ $item->id }}" class="btn btn-success">Edit</a></td>
-                        <td><a href="" class="btn btn-danger">Delete</a></td>
+                        <td>
+                          <form action="/role-delete/{{ $item->id }}" method="post">
+                            {{ csrf_field() }}
+                            {{ method_field('delete') }}
+                          <button class="btn btn-danger">Delete</button>
+                        </form>
+                        </td>
                       </tr>
                       @endforeach
                     </tbody>
